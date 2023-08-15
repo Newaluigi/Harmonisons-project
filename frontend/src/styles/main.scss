@@ -10,4 +10,34 @@
   --font1: "Boulder", serif;
   --font2: "Breathing", serif;
   --font3: "Barlow", serif;
+  --font-size1: 1.2rem;
+  --font-size2: 1.5rem;
+  --font-size3: 2rem;
+}
+
+.button {
+  background: linear-gradient(
+      292.22deg,
+      #bb9135 5.69%,
+      rgba(238, 190, 84, 0.38) 103.2%
+    ),
+    #bb9135;
+  box-shadow: inset -0.818182px -0.818182px 0.818182px #73530c,
+    inset 0.818182px 0.818182px 1.63636px #e1b34e;
+  color: var(--font-color2);
+  border: none;
+  border-radius: 20px;
+  width: 137px;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-family: var(--font1);
+  font-weight: bold;
+  line-height: 19px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--third-color);
+  }
 }
