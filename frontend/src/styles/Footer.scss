@@ -1,0 +1,22 @@
+.Footer {
+  text-decoration: none;
+}
+.mentionsLegales {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.modalOpen {
+  color: var(--secondary-color);
+  &:hover {
+    color: var(--font-color1);
+  }
+}
+.socialMedia {
+  color: var(--secondary-color);
+  text-decoration: none;
+  &:hover {
+    color: var(--font-color1);
+  }
+}
