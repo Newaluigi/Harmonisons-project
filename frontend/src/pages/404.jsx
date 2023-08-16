@@ -1,6 +1,6 @@
-export default function error404() {
+export default function NotFound() {
   return (
-    <div className="404">
+    <div className="NotFound">
       <p>Je suis le 404</p>
     </div>
   )
