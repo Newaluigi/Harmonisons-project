@@ -1,0 +1,51 @@
+.Header {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.logoFromHeader {
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 2px white);
+    transition: 0.4s;
+  }
+}
+.imageLogo {
+  height: 60px;
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 2px white);
+    transition: 0.4s;
+  }
+}
+
+.headerTitle {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: var(--font1);
+  color: var(--secondary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  background-color: var(--background-color);
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  //   padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
