@@ -20,7 +20,7 @@
   --font-size3: 2rem;
 }
 
-.button {
+.genericButton {
   background: linear-gradient(
       292.22deg,
       #bb9135 5.69%,
@@ -32,10 +32,11 @@
   color: var(--font-color2);
   border: none;
   border-radius: 20px;
-  width: 137px;
+  width: 160px;
   height: 44px;
   box-sizing: border-box;
   padding: 10px 20px;
+  margin: 20px 0 10px;
   font-size: 1.2rem;
   font-family: var(--font1);
   font-weight: bold;
@@ -53,4 +54,11 @@ body {
   padding: 0;
   box-sizing: border-box;
   min-height: 100vh;
+  font-family: var(--font3);
+}
+
+.sectionTitle {
+  font-family: var(--font2);
+  font-size: var(--font-size2);
+  color: var(--font-color1);
 }
