@@ -12,12 +12,12 @@
   --third-color: #64315d;
   --font-color1: #371732;
   --font-color2: #fff8f4;
-  --font1: "Boulder", serif;
-  --font2: "Breathing", serif;
+  --font1: "Rubik Bubbles", cursive;
+  --font2: "Breathing", cursive;
   --font3: "Barlow", serif;
   --font-size1: 1.2rem;
-  --font-size2: 1.5rem;
-  --font-size3: 2rem;
+  --font-size2: 1.4rem;
+  --font-size3: 1.9rem;
 }
 
 .genericButton {
@@ -32,14 +32,13 @@
   color: var(--font-color2);
   border: none;
   border-radius: 20px;
-  width: 160px;
+  width: 190px;
   height: 44px;
   box-sizing: border-box;
   padding: 10px 20px;
   margin: 20px 0 10px;
   font-size: 1.2rem;
   font-family: var(--font1);
-  font-weight: bold;
   line-height: 19px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -59,6 +58,27 @@ body {
 
 .sectionTitle {
   font-family: var(--font2);
-  font-size: var(--font-size2);
+  font-size: var(--font-size3);
   color: var(--font-color1);
+  margin: 20px;
+}
+
+.cardTitle {
+  font-family: var(--font2);
+  font-size: var(--font-size3);
+  color: var(--font-color2);
+}
+
+.genericParagraph {
+  text-align: left;
+  font-family: var(--font3);
+  font-size: var(--font-size1);
+  color: var(--font-color1);
+  padding: 10px;
+  margin: 20px;
+}
+
+@font-face {
+  font-family: breathing;
+  src: url("../assets/Fonts/Breathing.ttf");
 }

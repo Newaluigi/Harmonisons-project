@@ -12,8 +12,8 @@ export default function Me() {
   return (
     <div className="Me">
       <section id="therapeute">
-        <h2 className="sectionTitle">Thérapeute chamanique</h2>
-        <p>
+        <h2 className="sectionTitle breathing">Thérapeute chamanique</h2>
+        <p className="genericParagraph">
           Depuis que j'étais très jeune fille, j'avais pris l'habitude d'être
           l'oreille et l'épaule pour autrui. J'ai développé pendant ces années
           des qualités d'écoute et d'empathie indispensables à ma pratique
@@ -28,7 +28,7 @@ export default function Me() {
         <figure id="formationPic">
           <img src={feu} alt="chamane avec tambour près d'un feu" />
         </figure>
-        <p>
+        <p className="genericParagraph">
           En 2019, je m'installe à temps plein en tant que thérapeute holistique
           dans mon cabinet à domicile, à Montmorency dans le Val-d'Oise. J'ai
           d'excellents retours, le bouche-à-oreille me permet de rencontrer
