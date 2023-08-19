@@ -37,7 +37,9 @@ export default function Home() {
           </strong>
         </p>
       </section>
-      <button id="mainButton">Me débloquer</button>
+      <button id="mainButton">
+        <a href="/soins">Me débloquer</a>
+      </button>
       <section id="bioCard">
         <h2 className="cardTitle">Céline</h2>
         <div className="cardContent">
