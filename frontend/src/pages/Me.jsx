@@ -1,6 +1,7 @@
 import feu from "../assets/Photos/Formation.jpg"
 import React, { useEffect } from "react"
 import { usePageTitle } from "../components/PageTitleContext"
+import ModalImage from "react-modal-image"
 
 export default function Me() {
   const { setPageTitle } = usePageTitle()
@@ -25,9 +26,15 @@ export default function Me() {
           pleinement à ma place dans l'accompagnement, j'augmente
           progressivement le nombre de mes consultations.
         </p>
-        <figure id="formationPic">
-          <img src={feu} alt="chamane avec tambour près d'un feu" />
-        </figure>
+        <div id="formationPic">
+          <ModalImage
+            className="tcPicture"
+            small={feu}
+            large={feu}
+            alt="chamanisme près du feu"
+            hideDownload={true}
+          />
+        </div>
         <p className="genericParagraph">
           En 2019, je m'installe à temps plein en tant que thérapeute holistique
           dans mon cabinet à domicile, à Montmorency dans le Val-d'Oise. J'ai
@@ -42,17 +49,23 @@ export default function Me() {
           chamaniques inspirantes pour se relier au Sacré en nous et autour de
           nous !
         </p>
-        <button className="genericButton">Me contacter</button>
+        <button className="genericButton">
+          <a href="/blog">En savoir plus</a>
+        </button>
       </section>
       <section id="formation">
         <h2 className="sectionTitle">Parcours de vie et formation</h2>
         <div id="timeline"></div>
-        <button className="genericButton">En savoir plus</button>
+        <button className="genericButton">
+          <a href="/contact">Me contacter</a>
+        </button>
       </section>
       <section id="temoignages">
         <h2 className="sectionTitle">Témoignages</h2>
         <div id="carroussel"></div>
-        <button className="genericButton">Prendre RDV</button>
+        <button className="genericButton">
+          <a href="/contact">Prendre RDV</a>
+        </button>
       </section>
     </div>
   )

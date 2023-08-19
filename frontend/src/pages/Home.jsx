@@ -1,4 +1,6 @@
 import celine from "../assets/Photos/Portrait.jpg"
+import ModalImage from "react-modal-image"
+
 export default function Home() {
   return (
     <div className="Home">
@@ -39,14 +41,22 @@ export default function Home() {
       <section id="bioCard">
         <h2 className="cardTitle">Céline</h2>
         <div className="cardContent">
-          <img src={celine} alt="photo Céline" id="cardPicture" />
+          <ModalImage
+            className="cardPicture"
+            small={celine}
+            large={celine}
+            hideDownload={true}
+            alt="portrait Céline"
+          />
           <div className="textContent">
             <p>
               Praticienne chamanique spécialisée dans les déblocages
               transgénérationnels des femmes accompagnantes au mieux-être pour
               se sentir légitime et prendre sa place authentiquement.
             </p>
-            <button className="genericButton">En savoir plus</button>
+            <button className="genericButton">
+              <a href="/quisuisje">En savoir plus</a>
+            </button>
           </div>
         </div>
       </section>

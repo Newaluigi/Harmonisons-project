@@ -4,6 +4,8 @@
 @import "./Footer.scss";
 @import "./Header.scss";
 @import "./Burger.scss";
+@import "./Me.scss";
+@import "./Care.scss";
 
 :root {
   --background-color: #fff8f4;
@@ -36,7 +38,7 @@
   height: 44px;
   box-sizing: border-box;
   padding: 10px 20px;
-  margin: 20px 0 10px;
+  margin: 25px 0;
   font-size: 1.2rem;
   font-family: var(--font1);
   line-height: 19px;
@@ -44,6 +46,10 @@
   transition: all 0.3s ease-in-out;
   &:hover {
     background-color: var(--third-color);
+  }
+  a {
+    text-decoration: none;
+    color: var(--font-color2);
   }
 }
 

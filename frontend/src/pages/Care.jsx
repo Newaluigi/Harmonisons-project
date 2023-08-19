@@ -50,7 +50,9 @@ export default function Care() {
           chamanique (personnalisé et sur-mesure) Débriefer pour tirer des clés
           de ton expérience pour avancer
         </p>
-        <button className="genericButton">Prendre RDV</button>
+        <button className="genericButton">
+          <a href="/contact">Prenre RDV</a>
+        </button>
       </section>
       <section>
         <h2 className="sectionTitle">Autres accompagnements</h2>
@@ -85,11 +87,13 @@ export default function Care() {
           là-bas c'est sûr, moi non plus je vois rien. Ca vous emmerde ce que
           j'raconte?
         </p>
-        <button className="genericButton">Me contacter</button>
+        <button className="genericButton">
+          <a href="/contact">Me contacter</a>
+        </button>
       </section>
-      <section>
+      <section id="formulesCard">
         <h2 className="cardTitle">Formules</h2>
-        <div>
+        {/* <div>
           <h3>Formule 1</h3>
           <ul>description</ul>
         </div>
@@ -100,8 +104,111 @@ export default function Care() {
         <div>
           <h3>Formule 1</h3>
           <ul>description</ul>
+        </div> */}
+
+        <div className="snip1404">
+          <div className="plan">
+            <header>
+              <h4 className="plan-title">Starter</h4>
+              <div className="plan-cost">
+                <span className="plan-price">$19</span>
+                <span className="plan-type">/month</span>
+              </div>
+            </header>
+            <ul className="plan-features">
+              <li>
+                <i className="ion-checkmark"> </i>5GB Linux Web Space
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>5 MySQL Databases
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Unlimited Email
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>250Gb mo Transfer
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>24/7 Tech Support
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Daily Backups
+              </li>
+            </ul>
+            {/* <div className="plan-select">
+              <a href="">Select Plan</a>
+            </div> */}
+          </div>
+          <div className="plan">
+            <header>
+              <h4 className="plan-title">Basic</h4>
+              <div className="plan-cost">
+                <span className="plan-price">$29</span>
+                <span className="plan-type">/month</span>
+              </div>
+            </header>
+            <ul className="plan-features">
+              <li>
+                <i className="ion-checkmark"> </i>10GB Linux Web Space
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>10 MySQL Databases
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Unlimited Email
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>500Gb mo Transfer
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>24/7 Tech Support
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Daily Backups
+              </li>
+            </ul>
+            {/* <div className="plan-select">
+              <a href="">Select Plan</a>
+            </div> */}
+          </div>
+
+          <div className="plan">
+            <header>
+              <h4 className="plan-title">Ultra</h4>
+              <div className="plan-cost">
+                <span className="plan-price">$99</span>
+                <span className="plan-type">/month</span>
+              </div>
+            </header>
+            <ul className="plan-features">
+              <li>
+                <i className="ion-checkmark"> </i>100GB Linux Web Space
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Unlimited MySQL Databases
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Unlimited Email
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>10000Gb mo Transfer
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>24/7 Tech Support
+              </li>
+              <li>
+                <i className="ion-checkmark"> </i>Daily Backups
+              </li>
+            </ul>
+            {/* <div className="plan-select">
+              <a href="">Select Plan</a>
+            </div> */}
+          </div>
         </div>
-        <button className="genericButton">Prendre RDV</button>
+
+        <button className="genericButton">
+          <a href="/contact">Prenre RDV</a>
+        </button>
       </section>
     </div>
   )
