@@ -93,19 +93,6 @@ export default function Care() {
       </section>
       <section id="formulesCard">
         <h2 className="cardTitle">Formules</h2>
-        {/* <div>
-          <h3>Formule 1</h3>
-          <ul>description</ul>
-        </div>
-        <div>
-          <h3>Formule 1</h3>
-          <ul>description</ul>
-        </div>
-        <div>
-          <h3>Formule 1</h3>
-          <ul>description</ul>
-        </div> */}
-
         <div className="snip1404">
           <div className="plan">
             <header>
@@ -135,9 +122,6 @@ export default function Care() {
                 <i className="ion-checkmark"> </i>Daily Backups
               </li>
             </ul>
-            {/* <div className="plan-select">
-              <a href="">Select Plan</a>
-            </div> */}
           </div>
           <div className="plan">
             <header>
@@ -167,9 +151,6 @@ export default function Care() {
                 <i className="ion-checkmark"> </i>Daily Backups
               </li>
             </ul>
-            {/* <div className="plan-select">
-              <a href="">Select Plan</a>
-            </div> */}
           </div>
 
           <div className="plan">
@@ -200,9 +181,6 @@ export default function Care() {
                 <i className="ion-checkmark"> </i>Daily Backups
               </li>
             </ul>
-            {/* <div className="plan-select">
-              <a href="">Select Plan</a>
-            </div> */}
           </div>
         </div>
 

@@ -2,6 +2,7 @@ import feu from "../assets/Photos/Formation.jpg"
 import React, { useEffect } from "react"
 import { usePageTitle } from "../components/PageTitleContext"
 import ModalImage from "react-modal-image"
+import Testimonials from "../components/Testimonials"
 
 export default function Me() {
   const { setPageTitle } = usePageTitle()
@@ -63,6 +64,7 @@ export default function Me() {
       <section id="temoignages">
         <h2 className="sectionTitle">Témoignages</h2>
         <div id="carroussel"></div>
+        <Testimonials />
         <button className="genericButton">
           <a href="/contact">Prendre RDV</a>
         </button>
