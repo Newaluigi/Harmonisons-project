@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import { usePageTitle } from "../components/PageTitleContext"
 import ModalImage from "react-modal-image"
 import Testimonials from "../components/Testimonials"
+import Timeline from "../components/Timeline"
 
 export default function Me() {
   const { setPageTitle } = usePageTitle()
@@ -56,7 +57,9 @@ export default function Me() {
       </section>
       <section id="formation">
         <h2 className="sectionTitle">Parcours de vie et formation</h2>
-        <div id="timeline"></div>
+        <div id="timeline">
+          <Timeline />
+        </div>
         <button className="genericButton">
           <a href="/contact">Me contacter</a>
         </button>

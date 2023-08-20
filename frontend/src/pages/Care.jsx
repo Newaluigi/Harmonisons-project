@@ -44,11 +44,23 @@ export default function Care() {
           </p>
         </div>
         <p className="genericParagraph">
-          Chacune des 3 séances comprends ces 4 étapes : Échanger sur ta
-          problématique Entrer en transe légère toutes les deux et avoir des
-          visions intuitives Recevoir un puissant soin sonore et énergétique
-          chamanique (personnalisé et sur-mesure) Débriefer pour tirer des clés
-          de ton expérience pour avancer
+          Chacune des 3 séances comprends ces 4 étapes :
+          <br />
+          <br />
+          <ul>
+            <li>Échanger sur ta problématique</li>
+            <li>
+              Entrer en transe légère toutes les deux et avoir des visions
+              intuitives
+            </li>
+            <li>
+              Recevoir un puissant soin sonore et énergétique chamanique
+              (personnalisé et sur-mesure)
+            </li>
+            <li>
+              Débriefer pour tirer des clés de ton expérience pour avancer
+            </li>
+          </ul>
         </p>
         <button className="genericButton">
           <a href="/contact">Prenre RDV</a>
