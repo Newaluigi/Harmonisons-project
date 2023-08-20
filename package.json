@@ -32,6 +32,7 @@
     "husky": "^8.0.3"
   },
   "dependencies": {
+    "react-calendly": "^4.1.1",
     "react-icons": "^4.10.1",
     "react-modal-image": "^2.6.0",
     "react-responsive-carousel": "^3.2.23",
