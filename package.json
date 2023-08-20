@@ -34,6 +34,7 @@
   "dependencies": {
     "react-icons": "^4.10.1",
     "react-modal-image": "^2.6.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.15.0",
     "sass": "^1.65.1"
   }
