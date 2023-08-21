@@ -8,25 +8,6 @@ form {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.feedback-input {
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-  line-height: 22px;
-  background-color: transparent;
-  border: 2px solid var(--secondary-color);
-  transition: all 0.3s;
-  padding: 13px;
-  margin-bottom: 15px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: 0;
-}
-
-.feedback-input:focus {
-  border: 2px solid var(--first-color);
-}
-
 textarea {
   height: 150px;
   line-height: 150%;
@@ -90,4 +71,12 @@ textarea {
   padding-inline: 5px;
   transform: translate(10px, -14px) scale(0.8);
   background-color: var(--third-color);
+}
+.honeypot {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
 }

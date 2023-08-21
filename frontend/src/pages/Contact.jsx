@@ -17,18 +17,32 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault()
 
-    emailjs
-      .sendForm(
-        "service_xcel858",
-        "template_86fc0gv",
-        form.current,
-        "ElLj96q8cMOz5joh1"
-      )
-      .then(
-        (result) => {
-          toast.success(
-            "Merci pour votre message. Céline reprendra contact avec vous au plus vite!",
-            {
+    if (e.target.honeypot.value === "") {
+      emailjs
+        .sendForm(
+          "service_xcel858",
+          "template_86fc0gv",
+          form.current,
+          "ElLj96q8cMOz5joh1"
+        )
+        .then(
+          (result) => {
+            toast.success(
+              "Merci pour votre message. Céline reprendra contact avec vous au plus vite!",
+              {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              }
+            )
+          },
+          (_error) => {
+            toast.error("Une erreur est survenue... Merci de réessayer", {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -37,23 +51,14 @@ export default function Contact() {
               draggable: true,
               progress: undefined,
               theme: "colored",
-            }
-          )
-        },
-        (_error) => {
-          toast.error("Une erreur est survenue... Merci de réessayer", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          })
-        }
-      )
-    e.target.reset()
+            })
+          }
+        )
+      e.target.reset()
+    } else {
+      alert("Bot submission detected.")
+      e.target.reset()
+    }
   }
 
   return (
@@ -67,6 +72,17 @@ export default function Contact() {
         <h2 className="sectionTitle">Une question ?</h2>
         <p className="genericParagraph"></p>
         <form ref={form} onSubmit={sendEmail}>
+          <div className="input-group honeypot">
+            <input
+              name="honeypot"
+              type="text"
+              className="input-group__input"
+              autoComplete="off"
+            />
+            <label htmlFor="honeypot" className="input-group__label">
+              Ne pas remplir ce champ
+            </label>
+          </div>
           <div className="input-group">
             <input
               name="user_name"
@@ -81,9 +97,10 @@ export default function Contact() {
           <div className="input-group">
             <input
               name="user_email"
-              type="text"
+              type="email"
               className="input-group__input"
               required
+              title="Veuillez entrer une adresse e-mail valide"
             />
             <label htmlFor="user_email" className="input-group__label">
               Email
