@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { usePageTitle } from "../components/PageTitleContext"
+import Article from "../components/Article"
 
 export default function Blog() {
   const { setPageTitle } = usePageTitle()
@@ -10,7 +11,7 @@ export default function Blog() {
 
   return (
     <div className="Blog">
-      <p>Je suis le Blog</p>
+      <Article />
     </div>
   )
 }

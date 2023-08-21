@@ -1,0 +1,19 @@
+.Article {
+  height: 100%;
+  margin: 20px 10px;
+  padding: 10px;
+  background-color: var(--third-color);
+  color: var(--font-color2);
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  .genericParagraph {
+    text-align: left;
+    font-family: var(--font3);
+    font-size: var(--font-size1);
+    color: var(--font-color2);
+    padding: 10px;
+    margin: 20px;
+  }
+}
