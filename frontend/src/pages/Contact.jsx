@@ -1,6 +1,9 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { usePageTitle } from "../components/PageTitleContext"
 import { InlineWidget } from "react-calendly"
+import emailjs from "@emailjs/browser"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export default function Contact() {
   const { setPageTitle } = usePageTitle()
@@ -8,6 +11,50 @@ export default function Contact() {
   useEffect(() => {
     setPageTitle("Contact")
   }, [])
+
+  const form = useRef()
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        "service_xcel858",
+        "template_86fc0gv",
+        form.current,
+        "ElLj96q8cMOz5joh1"
+      )
+      .then(
+        (result) => {
+          toast.success(
+            "Merci pour votre message. Céline reprendra contact avec vous au plus vite!",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            }
+          )
+        },
+        (_error) => {
+          toast.error("Une erreur est survenue... Merci de réessayer", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          })
+        }
+      )
+    e.target.reset()
+  }
 
   return (
     <div className="Contact">
@@ -19,32 +66,32 @@ export default function Contact() {
       <section id="ContactForm">
         <h2 className="sectionTitle">Une question ?</h2>
         <p className="genericParagraph"></p>
-        <form>
+        <form ref={form} onSubmit={sendEmail}>
           <div className="input-group">
             <input
-              name="name"
+              name="user_name"
               type="text"
               className="input-group__input"
               required
             />
-            <label htmlFor="name" className="input-group__label">
+            <label htmlFor="user_name" className="input-group__label">
               Nom
             </label>
           </div>
           <div className="input-group">
             <input
-              name="email"
+              name="user_email"
               type="text"
               className="input-group__input"
               required
             />
-            <label htmlFor="email" className="input-group__label">
+            <label htmlFor="user_email" className="input-group__label">
               Email
             </label>
           </div>
           <div className="input-group">
             <textarea
-              name="text"
+              name="message"
               className="input-group__input"
               required
             ></textarea>
@@ -57,6 +104,18 @@ export default function Contact() {
           </button>
         </form>
       </section>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }
