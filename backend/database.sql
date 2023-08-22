@@ -1,3 +1,4 @@
+-- Active: 1692711003221@@127.0.0.1@3306@harmnisons
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -20,12 +21,13 @@ CREATE TABLE IF NOT EXISTS `harmnisons`.`articles` (
   `textArticle` MEDIUMTEXT NULL DEFAULT NULL,
   `urlImg` VARCHAR(255) NULL DEFAULT NULL,
   `archived` TINYINT NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),)
+  PRIMARY KEY (`id`)
+  )
 ENGINE = InnoDB
 AUTO_INCREMENT = 43
 DEFAULT CHARACTER SET = utf8mb3;
 
-INSERT INTO `articles` VALUES (27,'2023-05-03','test article archivé','<p><br></p>','',1),(28,'2023-05-18','new test archived 16/06','','',1),(40,'2023-06-15','Article 16/06/23','<p>Article test 16/06/23</p>','http://localhost:5000/uploads/images/L-1.png',0),(42,'2023-06-15','blabla 4','<p>blabla</p>','',1);
+INSERT INTO `articles` VALUES (55,'2023-05-03','test article archivé','<p><br></p>','',1),(56,'2023-05-18','new test archived 16/06','','',1),(58,'2023-06-15','Article 16/06/23','<p>Article test 16/06/23</p>','http://localhost:5000/uploads/images/L-1.png',0),(57,'2023-06-15','blabla 4','<p>blabla</p>','',1);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
