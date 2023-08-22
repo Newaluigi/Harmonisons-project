@@ -1,7 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import React, { useState } from "react"
+// import PropTypes from "prop-types"
 import defaultImage from "../assets/Photos/Formation.jpg"
+import ArticleModal from "./ArticleModal"
 
 // Fonction utilitaire pour formater une date au format "jour mois année"
 function formatDate(dateString) {
@@ -19,7 +19,7 @@ function formatDate(dateString) {
 //   return text.replace(/\n/g, "<br />")
 // }
 
-export default function ArticleCard({
+export default function Article({
   id,
   titleArticle,
   dateArticle,
@@ -38,17 +38,20 @@ export default function ArticleCard({
 
   // const truncatedText = truncateText(textArticle, 200) // Tronquer le texte à 150 caractères
 
+  // const [isSeleted, setIsSelected] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  // const handleClick = () => {
+  //   setIsSelected((preState) => !preState)
+  // }
+
   return (
     <div className="divArticleCard">
-      <div className="divFlexArticleCard">
+      <div className="Article">
         <div className="divTextArticle">
-          <Link to={`/articles/${id}`}>
-            <h2>{titleArticle}</h2>
-          </Link>
+          <h2 className="cardTitle">{titleArticle}</h2>
           <h6>{formatDate(dateArticle)}</h6>
           {/* <p>{ReactHtmlParser(newlineToBreak(truncatedText))}</p> */}
         </div>
-
         <div className="divImgArticle">
           {urlImg ? (
             <img
@@ -64,51 +67,27 @@ export default function ArticleCard({
             />
           )}
         </div>
+        <p className="textContent">
+          {textArticle}
+          Moi je passe pas mal de temps à la taverne. J'ai jamais entendu parlé
+          de celui-là! Vous savez c'est quand de même pas grave de pas savoir
+          faire des tartes! Ben quoi? C'est pas si grave que ça! Vous binez pas…
+        </p>
+        <button className="genericButton" onClick={() => setOpenModal(true)}>
+          Lire la suite
+        </button>
       </div>
-      <div className="divButtonArticleCard">
-        <Link to={`/articles/${id}`}>
-          <button className="buttonArticleCard" type="button">
-            Lire
-          </button>
-        </Link>
-      </div>
+      {openModal && (
+        <ArticleModal
+          id={id}
+          dateArticle={dateArticle}
+          titleArticle={titleArticle}
+          textArticle={textArticle}
+          urlImg={urlImg}
+          isOpen={openModal}
+          closeModal={() => setOpenModal(false)}
+        />
+      )}
     </div>
   )
 }
-
-// Prop types pour définir les types attendus des props
-ArticleCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  titleArticle: PropTypes.string.isRequired,
-  dateArticle: PropTypes.string.isRequired,
-  textArticle: PropTypes.string.isRequired,
-  urlImg: PropTypes.string,
-}
-
-// Valeurs par défaut pour les props optionnelles
-ArticleCard.defaultProps = {
-  urlImg: null,
-}
-
-// import React from "react"
-// // import { useEffect, useState } from "react"
-
-// export default function Article({
-//   id,
-//   titleArticle,
-//   dateArticle,
-//   textArticle,
-//   urlImg,
-// }) {
-//   return (
-//     <div className="Article">
-//       <h2 className="cardTitle">Titre de l'article {titleArticle} </h2>
-//       <p className="textContent">
-//         Moi je passe pas mal de temps à la taverne. J'ai jamais entendu parlé de
-//         celui-là! Vous savez c'est quand de même pas grave de pas savoir faire
-//         des tartes! Ben quoi? C'est pas si grave que ça! Vous binez pas…
-//       </p>
-//       <button className="genericButton">Lire la suite</button>
-//     </div>
-//   )
-// }
