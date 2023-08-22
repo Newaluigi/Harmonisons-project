@@ -29,11 +29,7 @@ pool.getConnection().catch(() => {
 
 const models = {}
 
-const ItemManager = require("./ItemManager")
-const CharactersManager = require("./CharactersManager")
-
-models.item = new ItemManager()
-models.item.setDatabase(pool)
+const CharactersManager = require("./ArticlesManager")
 
 models.characters = new CharactersManager()
 models.characters.setDatabase(pool)
