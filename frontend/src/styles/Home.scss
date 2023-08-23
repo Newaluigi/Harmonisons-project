@@ -1,3 +1,8 @@
+.Home {
+  .Header {
+    display: none;
+  }
+}
 .cardPicture {
   height: 90%;
   object-fit: cover;
@@ -35,4 +40,74 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.welcomeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.welcomeIcon {
+  // height: 100%;
+  margin: 0 10px;
+  transition: all 0.5s ease;
+}
+#mainButton {
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font1);
+  font-size: 20px;
+  transition: all 0.5s ease;
+  a {
+    color: var(--first-color);
+    text-decoration: none;
+  }
+}
+@-webkit-keyframes greenPulse {
+  from {
+    -webkit-box-shadow: 0 0 1px var(--first-color);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 18px #f1d34e;
+  }
+  to {
+    -webkit-box-shadow: 0 0 9px #ffea8c;
+  }
+}
+
+div.cirrcle {
+  margin: 100px auto;
+  width: 200px;
+  height: 150px;
+}
+
+.cirrcle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  -moz-border-radius: 200px/200px;
+  -webkit-border-radius: 200px 200px;
+  border-radius: 200px/200px;
+  border: 1px solid var(--first-color);
+  width: 200px;
+  height: 200px;
+  outline: none;
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+.welcomeBtn {
+  white-space: nowrap;
+}
+
+.welcomeBtn img,
+.welcomeBtn button {
+  display: inline-block;
+  vertical-align: middle; /* Pour aligner verticalement les éléments */
 }

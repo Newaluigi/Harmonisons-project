@@ -1,5 +1,7 @@
 import celine from "../assets/Photos/Portrait.jpg"
 import ModalImage from "react-modal-image"
+import icone1 from "../assets/Icones/image3.png"
+import icone2 from "../assets/Icones/image6.png"
 
 export default function Home() {
   return (
@@ -37,9 +39,15 @@ export default function Home() {
           </strong>
         </p>
       </section>
-      <button id="mainButton">
-        <a href="/soins">Me débloquer</a>
-      </button>
+      <div className="welcomeBtn">
+        <img src={icone1} alt="lune" className="welcomeIcon" />
+        <div className="cirrcle">
+          <button id="mainButton">
+            <a href="/soins">Me débloquer</a>
+          </button>
+        </div>
+        <img src={icone2} alt="lune" className="welcomeIcon" />
+      </div>
       <section id="bioCard">
         <h2 className="cardTitle">Céline</h2>
         <div className="cardContent">

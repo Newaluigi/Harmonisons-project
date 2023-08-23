@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import logo from "../assets/Logo/4.png"
 import { usePageTitle } from ".//PageTitleContext"
 import Burger from "./Burger"
@@ -9,9 +9,11 @@ export default function Header() {
   return (
     <div className="Header">
       <div className="navbar">
-        <Link to="/" className="logoFromHeader">
+        {/* <Link to="/" className="logoFromHeader"> */}
+        <a href="/" className="logoFromHeader">
           <img src={logo} alt="logo_du_site" className="imageLogo" />
-        </Link>
+        </a>
+        {/* </Link> */}
         <h1 className="headerTitle">{pageTitle}</h1>
         <Burger />
       </div>
