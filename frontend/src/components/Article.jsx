@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 // import PropTypes from "prop-types"
-import defaultImage from "../assets/Photos/Formation.jpg"
+import defaultImage from "../assets/Logo/Logo.png"
 import ArticleModal from "./ArticleModal"
+// import Image from "../assets/Photos/Portrait.jpg"
+import ModalImage from "react-modal-image"
 
 // Fonction utilitaire pour formater une date au format "jour mois année"
 function formatDate(dateString) {
@@ -26,23 +28,16 @@ export default function Article({
   textArticle,
   urlImg,
 }) {
-  console.info(id) // Utile pour les tests fonctionnels
+  console.info(id)
 
-  // Fonction pour tronquer le texte si nécessaire
-  // function truncateText(text, maxLength = 200, replacementText = "...") {
-  //   if (text.length <= maxLength) {
-  //     return text
-  //   }
-  //   return `${text.slice(0, maxLength)}${replacementText}`
-  // }
+  const textLimit = 200
+  const [truncatedText] = useState(
+    textArticle.length > textLimit
+      ? textArticle.substring(0, textLimit) + "..."
+      : textArticle
+  )
 
-  // const truncatedText = truncateText(textArticle, 200) // Tronquer le texte à 150 caractères
-
-  // const [isSeleted, setIsSelected] = useState(false)
   const [openModal, setOpenModal] = useState(false)
-  // const handleClick = () => {
-  //   setIsSelected((preState) => !preState)
-  // }
 
   return (
     <div className="divArticleCard">
@@ -50,29 +45,36 @@ export default function Article({
         <div className="divTextArticle">
           <h2 className="cardTitle">{titleArticle}</h2>
           <h6>{formatDate(dateArticle)}</h6>
-          {/* <p>{ReactHtmlParser(newlineToBreak(truncatedText))}</p> */}
         </div>
         <div className="divImgArticle">
           {urlImg ? (
-            <img
+            <ModalImage
               className="imgArticleCard"
               src={urlImg}
               alt={`illustration "${titleArticle}"`}
             />
           ) : (
-            <img
-              className="imgArticleCard"
+            <ModalImage
+              className="imgArticleCarddefault"
               src={defaultImage}
               alt={`illustration "${titleArticle}"`}
             />
           )}
+          {/* <ModalImage
+            className="imgArticleCarddefault"
+            small={Image}
+            large={Image}
+            hideDownload={true}
+            alt="portrait Céline"
+          /> */}
         </div>
-        <p className="textContent">
-          {textArticle}
-          Moi je passe pas mal de temps à la taverne. J'ai jamais entendu parlé
-          de celui-là! Vous savez c'est quand de même pas grave de pas savoir
-          faire des tartes! Ben quoi? C'est pas si grave que ça! Vous binez pas…
-        </p>
+        <img
+          className="imgArticleCarddefault"
+          src={defaultImage}
+          alt={`illustration "${titleArticle}"`}
+        />
+
+        <p className="textContent">{truncatedText}</p>
         <button className="genericButton" onClick={() => setOpenModal(true)}>
           Lire la suite
         </button>
