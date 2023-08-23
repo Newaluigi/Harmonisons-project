@@ -23,9 +23,9 @@
 }
 
 .burger-bar {
-  width: 4em;
+  width: 3em;
   height: 0.5em;
-  background-color: var(--secondary-color);
+  background-color: var(--first-color);
   border-radius: 0.5em;
 }
 
@@ -75,7 +75,7 @@
     position: fixed;
     top: 50;
     left: 0;
-    backdrop-filter: blur(8px) brightness(60%);
+    backdrop-filter: blur(8px) brightness(50%);
     padding-left: 0;
     height: 91.5vh;
     margin: 0;
@@ -85,6 +85,7 @@
     li {
       padding-left: 30px;
       list-style-type: none;
+      color: var(--first-color);
       cursor: pointer;
       font: 30px bold;
       a {
@@ -94,6 +95,7 @@
         padding: 4px 0;
         text-transform: uppercase;
         transition: 1s;
+        color: var(--first-color);
         &::after {
           position: absolute;
           content: "";
@@ -118,12 +120,12 @@
     }
     :nth-child(n):visited {
       text-decoration: none;
-      color: var(--secondary-color);
+      color: var(--first-color);
       text-shadow: 1px 1px 1px black;
     }
     :nth-child(n):hover {
-      color: var(--third-color);
-      // text-shadow: 1px 1px 1px black;
+      color: var(--secondary-color);
+      text-shadow: 1px 1px 1px black;
     }
   }
 }

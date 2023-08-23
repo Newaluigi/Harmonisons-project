@@ -13,7 +13,7 @@ export default function Care() {
 
   return (
     <div className="Care">
-      <section>
+      <section className="careSection">
         <h2 className="sectionTitle">Détails du soin</h2>
         <div>
           <img src={image1} alt="mains lune magie" />
@@ -66,7 +66,7 @@ export default function Care() {
           <a href="/contact">Prenre RDV</a>
         </button>
       </section>
-      <section>
+      <section className="careSection">
         <h2 className="sectionTitle">Autres accompagnements</h2>
         <div>
           <img src={image4} alt="mains lune magie" />

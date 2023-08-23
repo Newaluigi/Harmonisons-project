@@ -1,6 +1,14 @@
+.careSection {
+  background: url("../assets/Background/8.png") no-repeat center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 50px;
+}
+
 #formulesCard {
   height: 100%;
-  margin: 20px 10px;
+  margin: 50px 10px;
   padding: 10px;
   background-color: var(--third-color);
   color: var(--font-color2);

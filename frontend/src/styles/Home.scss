@@ -1,7 +1,14 @@
-.Home {
-  .Header {
-    display: none;
-  }
+#siteTitle {
+  font-family: var(--font1);
+  font-size: 3em;
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 20px 0;
+}
+
+#logoHome {
+  height: 6em;
+  transition: all 0.5s ease;
 }
 .cardPicture {
   height: 90%;

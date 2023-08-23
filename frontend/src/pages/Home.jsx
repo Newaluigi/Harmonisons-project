@@ -2,10 +2,13 @@ import celine from "../assets/Photos/Portrait.jpg"
 import ModalImage from "react-modal-image"
 import icone1 from "../assets/Icones/image3.png"
 import icone2 from "../assets/Icones/image6.png"
+import logo from "../assets/Logo/Logo.png"
 
 export default function Home() {
   return (
     <div className="Home">
+      <h1 id="siteTitle">HARMONISONS</h1>
+      <img src={logo} alt="logo" id="logoHome" />
       <section id="presentation">
         <h2 className="sectionTitle">Reprends les rennes de ta destinée :</h2>
         <p className="genericParagraph">

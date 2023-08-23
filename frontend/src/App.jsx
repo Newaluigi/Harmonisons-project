@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Home from "./pages/Home"
@@ -7,14 +7,20 @@ import Me from "./pages/Me"
 import Care from "./pages/Care"
 import Blog from "./pages/Blog"
 import Legals from "./pages/Legal"
-import NotFound from "./pages/404"
+import NotFound from "./pages/NotFound"
 import { PageTitleProvider } from "./components/PageTitleContext"
 
 function App() {
+  const location = useLocation()
+
+  // Vérifie si le chemin est différent de la page d'accueil ("/")
+  const showHeader = location.pathname !== "/"
+
   return (
     <PageTitleProvider>
       <div className="App">
-        <Header />
+        {showHeader && <Header />}{" "}
+        {/* Affiche l'en-tête si showHeader est vrai */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quisuisje" element={<Me />} />
@@ -29,5 +35,4 @@ function App() {
     </PageTitleProvider>
   )
 }
-
 export default App
