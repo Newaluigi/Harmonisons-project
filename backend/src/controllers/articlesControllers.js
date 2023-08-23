@@ -1,8 +1,8 @@
 const models = require("../models")
 
-const browse = (req, res) => {
-  models.characters
-    .findAll()
+const browsePublishedArticles = (req, res) => {
+  models.article
+    .findPublishedArticles()
     .then(([rows]) => {
       res.send(rows)
     })
@@ -12,24 +12,21 @@ const browse = (req, res) => {
     })
 }
 
-const add = (req, res) => {
-  const characters = req.body
-
-  // TODO validations (length, format...)
-
-  models.characters
-    .insert(characters)
-    .then(([result]) => {
-      res.json(result.insertId)
+const browseArchivedArticles = (req, res) => {
+  models.article
+    .findArchivedArticles()
+    .then(([rows]) => {
+      res.send(rows)
     })
     .catch((err) => {
       console.error(err)
       res.sendStatus(500)
     })
 }
+
 const read = (req, res) => {
-  models.characters
-    .find(req.params.id)
+  models.article
+    .findArticles(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404)
@@ -44,14 +41,12 @@ const read = (req, res) => {
 }
 
 const edit = (req, res) => {
-  const characters = req.body
+  const article = req.body
 
-  // TODO validations (length, format...)
+  article.id = parseInt(req.params.id, 10)
 
-  characters.id = parseInt(req.params.id, 10)
-
-  models.characters
-    .update(characters)
+  models.article
+    .updateArticles(article)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404)
@@ -64,8 +59,23 @@ const edit = (req, res) => {
       res.sendStatus(500)
     })
 }
+
+const add = (req, res) => {
+  const article = req.body
+
+  models.article
+    .insertArticles(article)
+    .then(([result]) => {
+      res.location(`/articles/${result.insertId}`).sendStatus(201)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+}
+
 const destroy = (req, res) => {
-  models.characters
+  models.article
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -81,9 +91,10 @@ const destroy = (req, res) => {
 }
 
 module.exports = {
-  browse,
-  add,
+  browsePublishedArticles,
+  browseArchivedArticles,
   read,
   edit,
+  add,
   destroy,
 }
