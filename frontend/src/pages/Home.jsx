@@ -38,7 +38,7 @@ export default function Home() {
             Si aujourd'hui tu n'as toujours pas réussi à t'épanouir en tant que
             professionnelle du bien-être, ce n'est pas parce que "tu es nulle",
             c'est sûrement qu'il y a quelque chose de beaucoup plus profond qui
-            te bloque
+            te bloque.
           </strong>
         </p>
       </section>

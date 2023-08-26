@@ -9,6 +9,7 @@ import Blog from "./pages/Blog"
 import Legals from "./pages/Legal"
 import NotFound from "./pages/NotFound"
 import { PageTitleProvider } from "./components/PageTitleContext"
+import FireflyBackground from "./components/FireflyBackground" // Assurez-vous de mettre le chemin correct vers le composant FireflyBackground
 
 function App() {
   const location = useLocation()
@@ -19,6 +20,7 @@ function App() {
   return (
     <PageTitleProvider>
       <div className="App">
+        <FireflyBackground /> {/* Ajoutez cette ligne */}
         {showHeader && <Header />}{" "}
         {/* Affiche l'en-tête si showHeader est vrai */}
         <Routes>

@@ -105,6 +105,7 @@ div.cirrcle {
   width: 200px;
   height: 200px;
   outline: none;
+  cursor: pointer;
   -webkit-animation-name: greenPulse;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -117,4 +118,61 @@ div.cirrcle {
 .welcomeBtn button {
   display: inline-block;
   vertical-align: middle; /* Pour aligner verticalement les éléments */
+}
+
+@media only screen and (min-width: 750px) {
+  #siteTitle {
+    font-size: 5em;
+  }
+  #logoHome {
+    height: 9em;
+  }
+
+  .genericParagraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 50px;
+  }
+
+  .welcomeBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    .cirrcle {
+      margin: 70px 20px;
+      width: 400px;
+    }
+    #mainButton {
+      font-size: 50px;
+    }
+  }
+
+  #bioCard {
+    height: 700px;
+    width: 800px;
+    justify-content: center;
+  }
+
+  .cardContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    font-size: 20px;
+    p {
+      margin: 50px;
+      text-align: left;
+    }
+  }
+  .Home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
 }
