@@ -11,6 +11,9 @@
 @import "./Contact.scss";
 @import "./Article.scss";
 @import "./Blog.scss";
+@import "./NotFound.scss";
+@import "./Firefly.scss";
+@import "./Navbar.scss";
 
 :root {
   --background-color: #fff8f4;
@@ -91,9 +94,25 @@ body {
   color: var(--font-color1);
   padding: 10px;
   margin: 20px;
+  span {
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
 }
 
 @font-face {
   font-family: breathing;
   src: url("../assets/Fonts/Breathing.ttf");
+}
+
+@media only screen and (min-width: 750px) {
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  .genericButton {
+    width: 250px;
+    height: 60px;
+    font-size: 1.7rem;
+    border-radius: 40px;
+  }
 }

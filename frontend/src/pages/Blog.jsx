@@ -26,7 +26,6 @@ export default function ArticlesDisplay() {
 
   return (
     <div className="Blog">
-      ici le blog
       <div className="divFlexArticles">
         {articles.map((article) => (
           <Article

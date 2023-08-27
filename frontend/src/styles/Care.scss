@@ -1,6 +1,14 @@
+.careSection {
+  background: url("../assets/Background/8.png") no-repeat center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 50px;
+}
+
 #formulesCard {
   height: 100%;
-  margin: 20px 10px;
+  margin: 50px 10px;
   padding: 10px;
   background-color: var(--third-color);
   color: var(--font-color2);
@@ -132,4 +140,27 @@
 }
 .snip1404 .featured .plan-select {
   padding: 30px 20px;
+}
+
+@media only screen and (min-width: 750px) {
+  #formulesCard {
+    // width: 50%;
+    margin: 60px 250px;
+    padding: 40px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .careSection {
+    background: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    p {
+      width: 50%;
+    }
+  }
 }

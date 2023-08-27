@@ -15,7 +15,7 @@ export default function Burger() {
   }
 
   return (
-    <div>
+    <div className="burgerContainer">
       <div className="burgerContent">
         <div className="burger-menu" onClick={updateMenu}>
           <div className={burgerClass}></div>

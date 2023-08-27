@@ -70,3 +70,15 @@
 .MQ-quests1:active {
   transform: translateY(5px);
 }
+
+@media only screen and (min-width: 750px) {
+  .divFlexArticles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .Article {
+      width: 800px;
+    }
+  }
+}
