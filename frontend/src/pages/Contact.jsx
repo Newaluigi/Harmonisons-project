@@ -70,7 +70,10 @@ export default function Contact() {
       </section>
       <section id="ContactForm">
         <h2 className="sectionTitle">Une question ?</h2>
-        <p className="genericParagraph"></p>
+        <p className="genericParagraph">
+          Je recevrais votre message directement dans ma boîte mail. (Réponse
+          entre 1 à 7 jours généralement.)
+        </p>
         <form ref={form} onSubmit={sendEmail}>
           <div className="input-group honeypot">
             <input

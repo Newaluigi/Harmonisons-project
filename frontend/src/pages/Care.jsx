@@ -15,16 +15,16 @@ export default function Care() {
     <div className="Care">
       <section className="careSection">
         <h2 className="sectionTitle">Détails du soin</h2>
-        <div>
-          <img src={image1} alt="mains lune magie" />
-          <p className="genericParagraph">
-            Je crois de tout mon cœur que notre rôle est essentiel à l'émergence
-            d'une Humanité plus apaisée, plus reconnectée à elle-même, et plus
-            solidaire. Nous vivons à une époque pleine d'opportunités, avec le
-            moyen de connecter avec des personnes et des connaissances plus
-            facilement et abondamment que jamais.
-          </p>
-        </div>
+
+        <img src={image1} alt="mains lune magie" />
+        <p className="genericParagraph">
+          Je crois de tout mon cœur que notre rôle est essentiel à l'émergence
+          d'une Humanité plus apaisée, plus reconnectée à elle-même, et plus
+          solidaire. Nous vivons à une époque pleine d'opportunités, avec le
+          moyen de connecter avec des personnes et des connaissances plus
+          facilement et abondamment que jamais.
+        </p>
+
         <p className="genericParagraph">
           Mon rôle est de vous permettre de réactiver vos ressources que vous
           avez longuement développée en cette vie ou celles de vos ancêtres,
@@ -34,15 +34,15 @@ export default function Care() {
           chercher exprimer votre approche unique tout en étant ancré dans la
           réalité du marché vous sentir dans l'abondance pour pouvoir la générer
         </p>
-        <div>
-          <img src={image2} alt="mains boule de cristal magie" />
-          <p className="genericParagraph">
-            Un soin d'une lignée ancestrale (maternelle ou paternelle) est un
-            accompagnement à distance (visio) sur 3 séances, pour éliminer les
-            blocages transgénérationnels invisibles qui t'empêchent de te
-            réaliser en tant que professionnelle du bien-être.
-          </p>
-        </div>
+
+        <img src={image2} alt="mains boule de cristal magie" />
+        <p className="genericParagraph">
+          Un soin d'une lignée ancestrale (maternelle ou paternelle) est un
+          accompagnement à distance (visio) sur 3 séances, pour éliminer les
+          blocages transgénérationnels invisibles qui t'empêchent de te réaliser
+          en tant que professionnelle du bien-être.
+        </p>
+
         <p className="genericParagraph">
           Chacune des 3 séances comprends ces 4 étapes :
           <br />
@@ -68,14 +68,14 @@ export default function Care() {
       </section>
       <section className="careSection">
         <h2 className="sectionTitle">Autres accompagnements</h2>
-        <div>
-          <img src={image4} alt="mains lune magie" />
-          <p className="genericParagraph">
-            De toute façon le chevalier de Provence il faudrait déjà mettre la
-            main dessus. Non Provençal c'est mon nom. Mais… C'est le Chevalier
-            de Provence ou le Chevalier Gaulois? Faudrait savoir!
-          </p>
-        </div>
+
+        <img src={image4} alt="mains lune magie" />
+        <p className="genericParagraph">
+          De toute façon le chevalier de Provence il faudrait déjà mettre la
+          main dessus. Non Provençal c'est mon nom. Mais… C'est le Chevalier de
+          Provence ou le Chevalier Gaulois? Faudrait savoir!
+        </p>
+
         <p className="genericParagraph">
           C'est quand même magnifique une armée bien coordonnée, hein! Et alors
           c'est pas permis? Y a des gens qui ont pris la peine de faire un
@@ -108,89 +108,86 @@ export default function Care() {
         <div className="snip1404">
           <div className="plan">
             <header>
-              <h4 className="plan-title">Starter</h4>
+              <h4 className="plan-title">Formule 1</h4>
               <div className="plan-cost">
-                <span className="plan-price">$19</span>
-                <span className="plan-type">/month</span>
+                <span className="plan-price">250€</span>
               </div>
             </header>
             <ul className="plan-features">
               <li>
-                <i className="ion-checkmark"> </i>5GB Linux Web Space
+                <i className="ion-checkmark"> </i>Soin 1
               </li>
               <li>
-                <i className="ion-checkmark"> </i>5 MySQL Databases
+                <i className="ion-checkmark"> </i>Soin 2
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Unlimited Email
+                <i className="ion-checkmark"> </i>Soin 3
               </li>
               <li>
-                <i className="ion-checkmark"> </i>250Gb mo Transfer
+                <i className="ion-checkmark"> </i>Soin 4
               </li>
               <li>
-                <i className="ion-checkmark"> </i>24/7 Tech Support
+                <i className="ion-checkmark"> </i>Soin 5
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Daily Backups
+                <i className="ion-checkmark"> </i>Soin 6
               </li>
             </ul>
           </div>
           <div className="plan">
             <header>
-              <h4 className="plan-title">Basic</h4>
+              <h4 className="plan-title">Formule 2</h4>
               <div className="plan-cost">
-                <span className="plan-price">$29</span>
-                <span className="plan-type">/month</span>
+                <span className="plan-price">500€</span>
               </div>
             </header>
             <ul className="plan-features">
               <li>
-                <i className="ion-checkmark"> </i>10GB Linux Web Space
+                <i className="ion-checkmark"> </i>Soin 1
               </li>
               <li>
-                <i className="ion-checkmark"> </i>10 MySQL Databases
+                <i className="ion-checkmark"> </i>Soin 2
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Unlimited Email
+                <i className="ion-checkmark"> </i>Soin 3
               </li>
               <li>
-                <i className="ion-checkmark"> </i>500Gb mo Transfer
+                <i className="ion-checkmark"> </i>Soin 4
               </li>
               <li>
-                <i className="ion-checkmark"> </i>24/7 Tech Support
+                <i className="ion-checkmark"> </i>Soin 5
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Daily Backups
+                <i className="ion-checkmark"> </i>Soin 6
               </li>
             </ul>
           </div>
 
           <div className="plan">
             <header>
-              <h4 className="plan-title">Ultra</h4>
+              <h4 className="plan-title">Formule 3</h4>
               <div className="plan-cost">
-                <span className="plan-price">$99</span>
-                <span className="plan-type">/month</span>
+                <span className="plan-price">800€</span>
               </div>
             </header>
             <ul className="plan-features">
               <li>
-                <i className="ion-checkmark"> </i>100GB Linux Web Space
+                <i className="ion-checkmark"> </i>Soin 1
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Unlimited MySQL Databases
+                <i className="ion-checkmark"> </i>Soin 2
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Unlimited Email
+                <i className="ion-checkmark"> </i>Soin 3
               </li>
               <li>
-                <i className="ion-checkmark"> </i>10000Gb mo Transfer
+                <i className="ion-checkmark"> </i>Soin 4
               </li>
               <li>
-                <i className="ion-checkmark"> </i>24/7 Tech Support
+                <i className="ion-checkmark"> </i>Soin 5
               </li>
               <li>
-                <i className="ion-checkmark"> </i>Daily Backups
+                <i className="ion-checkmark"> </i>Soin 6
               </li>
             </ul>
           </div>

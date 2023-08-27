@@ -52,7 +52,7 @@ export default function Legals({ activeModal, onClose }) {
                   sens défini par le Règlement Général sur la Protection des
                   Données (RGPD : n° 2016-679)
                 </p>
-                <h2>1. Présentation du site internet.</h2>
+                <h2>Présentation du site internet</h2>
                 <p>
                   En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004
                   pour la confiance dans l'économie numérique, il est précisé
@@ -91,8 +91,8 @@ export default function Legals({ activeModal, onClose }) {
                   </a>
                 </p>
                 <h2>
-                  2. Conditions générales d’utilisation du site et des services
-                  proposés.
+                  Conditions générales d’utilisation du site et des services
+                  proposés
                 </h2>
                 <p>
                   Le Site constitue une œuvre de l’esprit protégée par les
@@ -127,7 +127,7 @@ export default function Legals({ activeModal, onClose }) {
                   l’utilisateur qui est invité à s’y référer le plus souvent
                   possible afin d’en prendre connaissance.
                 </p>
-                <h2>3. Description des services fournis.</h2>
+                <h2>Description des services fournis</h2>
                 <p>
                   Le site internet{" "}
                   <a href="http://harmonisons.com/">http://harmonisons.com/</a>{" "}
@@ -154,9 +154,7 @@ export default function Legals({ activeModal, onClose }) {
                   ne sont pas exhaustifs. Ils sont donnés sous réserve de
                   modifications ayant été apportées depuis leur mise en ligne.
                 </p>
-                <h2>
-                  4. Limitations contractuelles sur les données techniques.
-                </h2>
+                <h2>Limitations contractuelles sur les données techniques</h2>
                 <p>
                   Le site utilise la technologie JavaScript. Le site Internet ne
                   pourra être tenu responsable de dommages matériels liés à
@@ -187,7 +185,7 @@ export default function Legals({ activeModal, onClose }) {
                   ou du matériel informatique et de téléphonie lié notamment à
                   l’encombrement du réseau empêchant l’accès au serveur.
                 </p>
-                <h2>5. Propriété intellectuelle et contrefaçons.</h2>
+                <h2>Propriété intellectuelle et contrefaçons</h2>
                 <p>
                   <a href="http://harmonisons.com/">http://harmonisons.com/</a>{" "}
                   est propriétaire des droits de propriété intellectuelle et
@@ -207,7 +205,7 @@ export default function Legals({ activeModal, onClose }) {
                   des articles L.335-2 et suivants du Code de Propriété
                   Intellectuelle.
                 </p>
-                <h2>6. Limitations de responsabilité.</h2>
+                <h2>Limitations de responsabilité</h2>
                 <p>
                   <a href="http://harmonisons.com/">http://harmonisons.com/</a>{" "}
                   agit en tant qu’éditeur du site.{" "}
@@ -246,7 +244,7 @@ export default function Legals({ activeModal, onClose }) {
                   ou pornographique, quel que soit le support utilisé (texte,
                   photographie …).
                 </p>
-                <h2>7. Gestion des données personnelles.</h2>
+                <h2>Gestion des données personnelles</h2>
                 <p>
                   Le Client est informé des réglementations concernant la
                   communication marketing, la loi du 21 Juin 2014 pour la
@@ -459,7 +457,7 @@ export default function Legals({ activeModal, onClose }) {
                   <a href="http://harmonisons.com/">http://harmonisons.com/</a>{" "}
                   sont principalement les agents de notre service client.
                 </p>
-                <h2>8. Notification d’incident</h2>
+                <h2>Notification d’incident</h2>
                 <p>
                   Quels que soient les efforts fournis, aucune méthode de
                   transmission sur Internet et aucune méthode de stockage
@@ -506,7 +504,7 @@ export default function Legals({ activeModal, onClose }) {
                   divulgation, altération ou destruction.
                 </p>
                 <h2>
-                  9. Liens hypertextes « cookies » et balises (“tags”) internet
+                  Liens hypertextes « cookies » et balises (“tags”) internet
                 </h2>
                 <p>
                   Le site{" "}
@@ -660,7 +658,7 @@ export default function Legals({ activeModal, onClose }) {
                   celui-ci et d’Internet.
                 </p>
                 <p></p>
-                <h2>10. Droit applicable et attribution de juridiction.</h2>
+                <h2>Droit applicable et attribution de juridiction.</h2>
                 <p>
                   Tout litige en relation avec l’utilisation du site{" "}
                   <a href="http://harmonisons.com/">http://harmonisons.com/</a>{" "}
