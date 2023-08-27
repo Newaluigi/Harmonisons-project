@@ -62,6 +62,9 @@ const edit = (req, res) => {
 
 const add = (req, res) => {
   const article = req.body
+  const id = req.body.id
+  console.info("article", article)
+  console.info("id", id)
 
   models.article
     .insertArticles(article)

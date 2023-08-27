@@ -8,6 +8,7 @@ import Care from "./pages/Care"
 import Blog from "./pages/Blog"
 import Legals from "./pages/Legal"
 import NotFound from "./pages/NotFound"
+import Admin from "./pages/Admin"
 import { PageTitleProvider } from "./components/PageTitleContext"
 import FireflyBackground from "./components/FireflyBackground" // Assurez-vous de mettre le chemin correct vers le composant FireflyBackground
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/legals" element={<Legals />} />
+          <Route path="/salsifi" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

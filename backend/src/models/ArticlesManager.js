@@ -34,10 +34,9 @@ class ArticleManager extends AbstractManager {
 
   insertArticles(article) {
     return this.database.query(
-      `insert into ${this.table} (titleArticle, dateArticle, textArticle, urlImg, archived) values (?, ?, ?, ?, ?)`,
+      `insert into ${this.table} ( titleArticle, textArticle, urlImg, archived) values (?, ?, ?, ?)`,
       [
         article.titleArticle,
-        article.dateArticle,
         article.textArticle,
         article.urlImg,
         article.archived,
@@ -45,13 +44,31 @@ class ArticleManager extends AbstractManager {
     )
   }
 
+  addArticle(article) {
+    return this.database
+      .query(
+        `insert into ${this.table} (titleArticle, textArticle, urlImg, archived) values (?, ?, ?, ?)`,
+        [
+          article.titleArticle,
+          article.textArticle,
+          article.urlImg,
+          article.archived,
+        ]
+      )
+      .then(([result]) => {
+        return { id: result.insertId }
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
   updateArticles(article) {
     return this.database.query(
-      `update ${this.table} set titleArticle = ?, dateArticle = ?, textArticle = ?, urlImg = ?, archived = ?
+      `update ${this.table} set titleArticle = ?, textArticle = ?, urlImg = ?, archived = ?
       where id = ?`,
       [
         article.titleArticle,
-        article.dateArticle,
         article.textArticle,
         article.urlImg,
         article.archived,
