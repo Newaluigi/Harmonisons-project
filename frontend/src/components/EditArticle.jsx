@@ -1,117 +1,108 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react"
 import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
 
-const EditArticle = () => {
+export default function UpdateArticle() {
   const [articles, setArticles] = useState([])
   const [selectedArticle, setSelectedArticle] = useState(null)
-  const [titleArticle, settitleArticle] = useState("")
+  const [dateArticle, setDateArticle] = useState("")
+  const [titleArticle, setTitleArticle] = useState("")
   const [textArticle, setTextArticle] = useState("")
-  const [urlImg, setPictureArticle] = useState(null)
-  const [archived, setArchivedArticle] = useState(0)
+  const [pictureArticle, setPictureArticle] = useState("")
+  const [archived, setArchived] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
-  const [imageUrl, setImageUrl] = useState("")
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get("http://localhost:4242/articles")
-        setArticles(response.data)
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/articles`
+        )
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+        setArticles(data)
       } catch (error) {
-        console.error("Erreur lors de la récupération des articles:", error)
-        toast.error("Une erreur est survenue... Merci de réessayer", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        })
+        console.error("Erreur lors de la récupération des articles :", error)
       }
     }
 
     fetchArticles()
   }, [])
+
   const handleArticleSelection = (article) => {
     setSelectedArticle(article)
-
-    settitleArticle(article.titleArticle)
+    setDateArticle(new Date(article.dateArticle).toISOString().substr(0, 10)) // formatage de la date
+    setTitleArticle(article.titleArticle)
     setTextArticle(article.textArticle)
     setPictureArticle(article.urlImg)
-    setImageUrl(import.meta.env.VITE_BACKEND_URL + article.urlImg)
-    setArchivedArticle(article.archived)
-    setSubmitSuccess(false)
+    setArchived(article.archived === 1)
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (selectedArticle) {
-      const formData = new FormData()
-      formData.append("name_theme", titleArticle)
-      formData.append("textArticle", textArticle)
-      if (urlImg instanceof File) {
-        formData.append("urlImg", urlImg)
-      } else {
-        formData.append("existing_urlImg", urlImg)
-      }
-      formData.append("archived", archived)
-      try {
-        await axios.put(
-          `http://localhost:4242/articles/${selectedArticle.id}`,
-          formData,
-          {}
-        )
+    if (!selectedArticle) return
 
-        // Mettre à jour les thèmes localement
-        setArticles(
-          articles.map((article) =>
-            article.id === selectedArticle.id
-              ? {
-                  ...article,
-                  titleArticle,
-                  textArticle,
-                  urlImg,
-                  archived,
-                }
-              : article
-          )
-        )
-        setSubmitSuccess(true)
-        toast.success("L'article a bien été modifié!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        })
-      } catch (error) {
-        console.error("Erreur lors de la modification de l'article:", error)
-        toast.error(
-          "Erreur lors de la modification de l'article... Merci de réessayer",
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          }
-        )
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/articles/${selectedArticle.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            dateArticle,
+            titleArticle,
+            textArticle,
+            urlImg: pictureArticle,
+            archived: archived ? 1 : 0,
+          }),
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok")
       }
+
+      // Update the local state
+      setArticles((prevArticles) =>
+        prevArticles.map((article) =>
+          article.id === selectedArticle.id
+            ? {
+                ...article,
+                dateArticle,
+                titleArticle,
+                textArticle,
+                urlImg: pictureArticle,
+                archived: archived ? 1 : 0,
+              }
+            : article
+        )
+      )
+      setSubmitSuccess(true)
+      toast.success("L'article a bien été modifié!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+      setTimeout(() => {
+        setSubmitSuccess(false)
+      }, 3000)
+    } catch (error) {
+      console.error("Erreur lors de la mise à jour de l'article:", error)
     }
+    console.info("archived :", archived)
   }
 
   const handleFileChange = (e) => {
     if (e.target.files.length === 1) {
       setPictureArticle(e.target.files[0])
-      setImageUrl(URL.createObjectURL(e.target.files[0]))
+      setPictureArticle(URL.createObjectURL(e.target.files[0]))
     } else {
       setPictureArticle(null)
     }
@@ -119,20 +110,18 @@ const EditArticle = () => {
 
   return (
     <div className="editArticle">
-      <form className="interieurCadre">
-        <h2 className="cardTitle">Modifier un article</h2>
-        <label className="label" htmlFor="article-selection">
-          Sélectionner un article:
-        </label>
+      <form onSubmit={handleSubmit}>
+        <h2 className="cardTitle">Modification des articles</h2>
+        <label htmlFor="Article-selection">Sélectionner un article :</label>
         <select
-          id="article-selection"
+          id="Article-selection"
           value={selectedArticle?.id || ""}
           onChange={(e) => {
-            const article = articles.find(
+            const foundArticle = articles.find(
               (article) => article.id === Number(e.target.value)
             )
-            if (article) {
-              handleArticleSelection(article)
+            if (foundArticle) {
+              handleArticleSelection(foundArticle)
             }
           }}
         >
@@ -143,40 +132,52 @@ const EditArticle = () => {
             </option>
           ))}
         </select>
-
         {selectedArticle && (
-          <form onSubmit={handleSubmit} className="interieurCadreSecond">
-            <label className="label" htmlFor="titleArticle">
-              Titre de l'article:
-            </label>
+          <>
+            <br />
+            <label htmlFor="dateArticle">Date de l'article :</label>
+            <br />
             <input
-              type="text"
-              id="titleArticle"
-              value={titleArticle}
-              onChange={(e) => settitleArticle(e.target.value)}
+              id="dateArticle"
+              type="date"
+              value={dateArticle}
+              onChange={(e) => setDateArticle(e.target.value)}
             />
             <br />
-            <div className="descript">
-              <label className="label" htmlFor="textArticle">
-                Contenu de l'article:
-              </label>
-              <br />
+            <label htmlFor="titleArticle">Titre de l'article :</label>
+            <br />
+            <input
+              id="titleArticle"
+              value={titleArticle}
+              onChange={(e) => setTitleArticle(e.target.value)}
+            />
+            <div>
+              <label htmlFor="textArticle">Texte :</label>
               <textarea
-                className="textArticleArea"
                 id="textArticle"
                 value={textArticle}
                 onChange={(e) => setTextArticle(e.target.value)}
               ></textarea>
-              <br />
             </div>
+            <br />
+            {/* <img
+              className="previewImage"
+              src={pictureArticle}
+              alt="illustration de l'article"
+              style={{ display: pictureArticle ? "block" : "none" }}
+            /> */}
+            <br />
+            <label htmlFor="fileUploader">
+              Télécharger une nouvelle image :
+            </label>
             <div className="image">
               <label className="label" htmlFor="urlImg">
                 Image:
               </label>
-              {imageUrl && (
+              {pictureArticle && (
                 <img
                   className="photoArticle"
-                  src={imageUrl}
+                  src={pictureArticle}
                   alt="Aperçu"
                   width="150"
                 />
@@ -190,44 +191,39 @@ const EditArticle = () => {
               <input
                 type="hidden"
                 id="existing_picture_article"
-                value={urlImg}
+                value={pictureArticle}
               />
             </div>
             <br />
-
-            <label className="label" htmlFor="archived">
-              Archiver l'article:
-            </label>
-            <select
-              id="archived"
-              value={archived}
-              onChange={(e) => setArchivedArticle(Number(e.target.value))}
-            >
-              <option value={0}>Non</option>
-              <option value={1}>Oui</option>
-            </select>
-            <br />
-
-            <button className="genericButton" type="submit">
-              {submitSuccess ? "Modifié!" : "Modifier l'article"}
-            </button>
-          </form>
+            <label htmlFor="archivedArticle">Archivé :</label>
+            <input
+              id="archivedArticle"
+              type="checkbox"
+              checked={archived}
+              onChange={(e) => setArchived(e.target.checked)}
+            />
+          </>
         )}
+        <div className="containButton">
+          <button className="genericButton" type="submit">
+            Mettre à jour l'article
+          </button>
+        </div>
       </form>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+      {submitSuccess && (
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      )}
     </div>
   )
 }
-
-export default EditArticle
