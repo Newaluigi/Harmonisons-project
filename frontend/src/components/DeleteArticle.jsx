@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
-// import axios from "axios";
+import axios from "axios"
 import { FaInfoCircle } from "react-icons/fa"
-// import createApiService from "../../services/RequestApi"
 
 export default function DeleteArticle() {
   const [articles, setArticles] = useState([]) // stocke la liste des articles récupérés à partir de l'API
@@ -15,9 +14,7 @@ export default function DeleteArticle() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await apiService.get(
-          `${import.meta.env.VITE_BACKEND_URL}/articles`
-        )
+        const response = await axios.get("http://localhost:4242/articles")
         setArticles(response.data)
       } catch (error) {
         console.error("Erreur lors de la récupération des articles:", error)
@@ -36,19 +33,33 @@ export default function DeleteArticle() {
   const handleDelete = async () => {
     try {
       await Promise.all(
-        selectedArticles.map((id) =>
-          apiService.delete(
-            `${import.meta.env.VITE_BACKEND_URL}/articles/${id}`
-          )
-        )
+        selectedArticles.map(async (id) => {
+          try {
+            const response = await fetch(
+              `${import.meta.env.VITE_BACKEND_URL}/articles/${id}`,
+              {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            )
+            if (!response.ok) {
+              throw new Error("Network response was not ok")
+            }
+          } catch (error) {
+            console.error("Erreur lors de la suppression d'un article:", error)
+          }
+        })
       )
+
       setArticles(
         articles.filter((article) => !selectedArticles.includes(article.id))
       )
       setSelectedArticles([])
       setDeleteSuccess(true)
       setTimeout(() => {
-        setDeleteSuccess(false) // Réinitialise submitSuccess après un délai de 3 secondes
+        setDeleteSuccess(false)
       }, 3000)
       setShowConfirmation(false)
     } catch (error) {
@@ -57,14 +68,14 @@ export default function DeleteArticle() {
   }
 
   return (
-    <div className="adminPage">
-      <h3>
-        Supprimer des articles&#x20;
+    <div className="deleteArticle">
+      <h2 className="cardTitle">
+        Supprimer des articles
         <FaInfoCircle
           size={16}
           title="Vous pouvez ici supprimer définitivement un ou plusieurs articles publiés."
         />
-      </h3>
+      </h2>
       <div>
         {articles.map((article) => (
           <div className="divList" key={article.id}>
@@ -81,17 +92,16 @@ export default function DeleteArticle() {
                 }
               }}
             />
-            {/* <span>
+            <span>
               {new Date(article.dateArticle).toLocaleDateString("fr-FR")}
-              &nbsp;-&nbsp;<strong>{article.titleArticle}</strong>&nbsp;-&nbsp;
-              <em>Thème : {article.themesArticleName}</em>
-            </span> */}
+              &nbsp;-&nbsp;<strong>{article.titleArticle}</strong>
+            </span>
           </div>
         ))}
       </div>
       <div className="containButton">
         <button
-          className="addButton"
+          className="genericButton"
           type="submit"
           onClick={() => setShowConfirmation(true)}
         >
@@ -105,11 +115,15 @@ export default function DeleteArticle() {
             sélectionnés ?
           </p>
           {/* Appel de la fonction handleDelete */}
-          <button className="suppButton" type="submit" onClick={handleDelete}>
+          <button
+            className="genericButton"
+            type="submit"
+            onClick={handleDelete}
+          >
             Confirmer
           </button>
           <button
-            className="annulButton"
+            className="genericButton"
             type="submit"
             onClick={() => setShowConfirmation(false)}
           >
