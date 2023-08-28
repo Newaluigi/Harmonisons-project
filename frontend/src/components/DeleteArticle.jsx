@@ -71,10 +71,10 @@ export default function DeleteArticle() {
     <div className="deleteArticle">
       <h2 className="cardTitle">
         Supprimer des articles
-        <FaInfoCircle
+        {/* <FaInfoCircle
           size={16}
           title="Vous pouvez ici supprimer définitivement un ou plusieurs articles publiés."
-        />
+        /> */}
       </h2>
       <div>
         {articles.map((article) => (
