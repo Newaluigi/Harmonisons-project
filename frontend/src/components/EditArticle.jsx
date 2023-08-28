@@ -95,6 +95,16 @@ export default function UpdateArticle() {
       }, 3000)
     } catch (error) {
       console.error("Erreur lors de la mise à jour de l'article:", error)
+      toast.error("Une erreur est survenue... Merci de réessayer", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
     }
     console.info("archived :", archived)
   }
