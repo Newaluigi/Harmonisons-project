@@ -1,0 +1,51 @@
+.addArticle,
+.editArticle,
+.deleteArticle {
+  color: var(--font-color2);
+  input {
+    margin: 10px 0;
+  }
+  textarea {
+    margin: 10px 0;
+    height: 150px;
+    width: 100%;
+    min-width: 300px;
+    line-height: 150%;
+    resize: vertical;
+  }
+  .interieurCadre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .genericButton {
+    width: 300px;
+  }
+}
+
+.deleteArticle {
+  background-color: var(--third-color);
+  color: var(--font-color2);
+  padding: 30px 0;
+  border-radius: 14px;
+  font-family: var(--font3);
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+@media only screen and (min-width: 750px) {
+  .adminContainer {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 500px;
+  }
+  .deleteArticle {
+    @media only screen and (min-width: 750px) {
+      max-width: 820px;
+      width: 50%;
+    }
+  }
+}
