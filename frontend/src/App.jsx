@@ -10,21 +10,19 @@ import Legals from "./pages/Legal"
 import NotFound from "./pages/NotFound"
 import Admin from "./pages/Admin"
 import { PageTitleProvider } from "./components/PageTitleContext"
-import FireflyBackground from "./components/FireflyBackground" // Assurez-vous de mettre le chemin correct vers le composant FireflyBackground
+import FireflyBackground from "./components/FireflyBackground"
 import Login from "./pages/Login"
 
 function App() {
   const location = useLocation()
 
-  // Vérifie si le chemin est différent de la page d'accueil ("/")
   const showHeader = location.pathname !== "/"
 
   return (
     <PageTitleProvider>
       <div className="App">
-        <FireflyBackground /> {/* Ajoutez cette ligne */}
-        {showHeader && <Header />}{" "}
-        {/* Affiche l'en-tête si showHeader est vrai */}
+        <FireflyBackground />
+        {showHeader && <Header />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quisuisje" element={<Me />} />

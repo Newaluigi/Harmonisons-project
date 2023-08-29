@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { FaInfoCircle } from "react-icons/fa"
+import { ToastContainer, toast } from "react-toastify"
+// import { FaInfoCircle } from "react-icons/fa"
 
 export default function DeleteArticle() {
-  const [articles, setArticles] = useState([]) // stocke la liste des articles récupérés à partir de l'API
-  const [selectedArticles, setSelectedArticles] = useState([]) // stocke les articles sélectionnés pour la suppression
-  const [showConfirmation, setShowConfirmation] = useState(false) // booléen qui détermine si le message de confirmation de suppression doit être affiché ou non
-  const [deleteSuccess, setDeleteSuccess] = useState(false) // booléen qui indique si la suppression a été effectuée avec succès ou non
-  //   const apiService = createApiService()
+  const [articles, setArticles] = useState([])
+  const [selectedArticles, setSelectedArticles] = useState([])
+  const [showConfirmation, setShowConfirmation] = useState(false)
+  const [deleteSuccess, setDeleteSuccess] = useState(false)
 
-  // requête asynchrone lors du montage initial du composant,
-  // récupère la liste des articles et met à jour l'état du state "articles"
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -24,12 +22,6 @@ export default function DeleteArticle() {
     fetchArticles()
   }, [])
 
-  // gérer la suppression des articles sélectionnés
-  // une requête DELETE est envoyée pour chaque article sélectionné
-  // en utilisant "Promise.all" pour exécuter toutes les requêtes en parallèle
-  // puis l'état "articles" est mis à jour en supprimant tous les articles sélectionnés,
-  // puis l'état "selectedArticles" est réinitialisé
-  // et l'état "deleteSuccess" est mis à jour pour afficher un message de confirmation
   const handleDelete = async () => {
     try {
       await Promise.all(
@@ -58,12 +50,32 @@ export default function DeleteArticle() {
       )
       setSelectedArticles([])
       setDeleteSuccess(true)
+      toast.success("L'article a bien été suprimé!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
       setTimeout(() => {
         setDeleteSuccess(false)
       }, 3000)
       setShowConfirmation(false)
     } catch (error) {
       console.error("Erreur lors de la suppression des articles:", error)
+      toast.error("Une erreur est survenue... Merci de réessayer", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
     }
   }
 
@@ -132,9 +144,18 @@ export default function DeleteArticle() {
         </div>
       )}
       {deleteSuccess && (
-        <p className="success-message">
-          Les articles sélectionnés ont été supprimés avec succès.
-        </p>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       )}
     </div>
   )

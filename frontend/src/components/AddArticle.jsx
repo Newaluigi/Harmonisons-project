@@ -15,14 +15,8 @@ const AddArticle = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // const formData = new FormData()
-    // formData.append("titleArticle", nameArticle)
-    // formData.append("dateArticle", dateArticle)
-    // formData.append("textArticle", contentArticle)
-    // formData.append("urlImg", pictureArticle)
-    // formData.append("archived", archivedArticle)
     const formData = {
-      titleArticle: nameArticle, // Utilisez nameArticle ici pour obtenir la valeur du titre
+      titleArticle: nameArticle,
       dateArticle,
       textArticle: contentArticle,
       urlImg: pictureArticle,

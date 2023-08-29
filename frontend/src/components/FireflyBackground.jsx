@@ -1,7 +1,7 @@
 import React from "react"
 
 const FireflyBackground = () => {
-  const quantity = 82 // Set the quantity
+  const quantity = 82
   const fireflies = []
 
   for (let i = 1; i <= quantity; i++) {
