@@ -1,4 +1,20 @@
 @import "./App.scss";
+@import "./Legals.scss";
+@import "./Home.scss";
+@import "./Footer.scss";
+@import "./Header.scss";
+@import "./Burger.scss";
+@import "./Me.scss";
+@import "./Care.scss";
+@import "./Testimonials.scss";
+@import "./Timeline.scss";
+@import "./Contact.scss";
+@import "./Article.scss";
+@import "./Blog.scss";
+@import "./NotFound.scss";
+@import "./Firefly.scss";
+@import "./Navbar.scss";
+@import "./Admin.scss";
 
 :root {
   --background-color: #fff8f4;
@@ -7,7 +23,98 @@
   --third-color: #64315d;
   --font-color1: #371732;
   --font-color2: #fff8f4;
-  --font1: "Boulder", serif;
-  --font2: "Breathing", serif;
+  --font1: "Rubik Bubbles", cursive;
+  --font2: "Breathing", cursive;
   --font3: "Barlow", serif;
+  --font-size1: 1.2rem;
+  --font-size2: 1.4rem;
+  --font-size3: 1.9rem;
+}
+
+.genericButton {
+  background: linear-gradient(
+      292.22deg,
+      #bb9135 5.69%,
+      rgba(238, 190, 84, 0.38) 103.2%
+    ),
+    #bb9135;
+  box-shadow: inset -0.818182px -0.818182px 0.818182px #73530c,
+    inset 0.818182px 0.818182px 1.63636px #e1b34e;
+  color: var(--font-color2);
+  border: none;
+  border-radius: 20px;
+  width: 190px;
+  height: 44px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: 25px 0;
+  font-size: 1.2rem;
+  font-family: var(--font1);
+  line-height: 19px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--third-color);
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+  a {
+    text-decoration: none;
+    color: var(--font-color2);
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  margin-top: 150px;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: var(--font3);
+}
+
+.sectionTitle {
+  font-family: var(--font2);
+  font-size: var(--font-size3);
+  color: var(--font-color1);
+  margin: 20px;
+}
+
+.cardTitle {
+  font-family: var(--font2);
+  font-size: var(--font-size3);
+  color: var(--font-color2);
+  text-shadow: rgb(9, 9, 9) 1px 10px 10px;
+}
+
+.genericParagraph {
+  text-align: left;
+  font-family: var(--font3);
+  font-size: var(--font-size1);
+  color: var(--font-color1);
+  padding: 10px;
+  margin: 20px;
+  span {
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+}
+
+@font-face {
+  font-family: breathing;
+  src: url("../assets/Fonts/Breathing.ttf");
+}
+
+@media only screen and (min-width: 750px) {
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  .genericButton {
+    width: 250px;
+    height: 60px;
+    font-size: 1.7rem;
+    border-radius: 40px;
+  }
 }

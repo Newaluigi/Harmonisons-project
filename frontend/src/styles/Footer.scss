@@ -1,0 +1,29 @@
+.Footer {
+  text-decoration: none;
+  padding: 20px;
+  margin-top: 40px;
+}
+.mentionsLegales {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.modalOpen {
+  color: var(--secondary-color);
+  &:hover {
+    color: var(--font-color1);
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0px 2px white);
+    transition: 0.4s;
+  }
+}
+.socialMedia {
+  color: var(--secondary-color);
+  text-decoration: none;
+  &:hover {
+    color: var(--font-color1);
+    transform: scale(1.1);
+    transition: 0.4s;
+  }
+}

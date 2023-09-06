@@ -1,0 +1,103 @@
+#ContactForm {
+  margin-top: 50px;
+}
+form {
+  max-width: 420px;
+  margin: 20px 10px;
+  padding: 40px 20px 20px 20px;
+  background-color: var(--third-color);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize: vertical;
+}
+
+[type="submit"] {
+  width: 100%;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+}
+.input-group {
+  position: relative;
+}
+
+.input-group__input {
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  color: #fff;
+  outline: 2px solid #fff;
+  background-color: transparent;
+  transition: outline-color 500ms;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.input-group__input:focus,
+.input-group__input:valid {
+  border: 2px solid var(--first-color);
+}
+
+.input-group__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 14px);
+  color: var(--first-color);
+  transition: transform 500ms, background-color 500ms, padding-inline 500ms;
+}
+
+.input-group__input:focus + .input-group__label,
+.input-group__input:valid + .input-group__label {
+  padding-inline: 5px;
+  transform: translate(10px, -14px) scale(0.8);
+  background-color: var(--third-color);
+}
+.honeypot {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media only screen and (min-width: 750px) {
+  #ContactForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  form {
+    max-width: 820px;
+    width: 50%;
+  }
+  #Calendar {
+    p {
+      width: 50%;
+    }
+  }
+}

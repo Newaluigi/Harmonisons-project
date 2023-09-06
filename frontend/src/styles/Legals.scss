@@ -1,0 +1,99 @@
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Legals {
+  width: 500px;
+  min-height: 100px;
+  max-height: 75vh;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: var(--third-color);
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  z-index: 100;
+  overflow: auto;
+  .legals-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--font-color2);
+    h1 {
+      font-family: var(--font2);
+      font-size: var(--font-size3);
+      color: var(--font-color2);
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: var(--font2);
+      font-size: var(--font-size2);
+      color: var(--font-color2);
+      margin-bottom: 20px;
+    }
+    p {
+      font-family: var(--font3);
+      font-size: var(--font-size1);
+      color: var(--font-color2);
+      margin-bottom: 20px;
+      text-align: justify;
+      line-height: 1.5;
+    }
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      &:hover {
+        color: var(--font-color1);
+      }
+    }
+  }
+  .modalButton {
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    z-index: 500;
+    background: linear-gradient(
+        292.22deg,
+        #bb9135 5.69%,
+        rgba(238, 190, 84, 0.38) 103.2%
+      ),
+      #bb9135;
+    box-shadow: inset -0.818182px -0.818182px 0.818182px #73530c,
+      inset 0.818182px 0.818182px 1.63636px #e1b34e;
+    color: var(--font-color2);
+    border: none;
+    border-radius: 20px;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: var(--font1);
+    font-weight: bold;
+    line-height: 19px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--third-color);
+    }
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .Legals {
+    width: 1200px;
+  }
+}
